@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+session_start();
+?>
 
 <html>
   <head>
@@ -15,34 +17,34 @@
       </div>
       <section>
         <div>
-          <h2>Pilih Cabang Transmart</h2>
+          <h2>Pilih Branch Transmart</h2>
           <div class="container">
             <div class="box card">
               <img src="asset/img/transmart bandung.jpg"/>
               <h3>Nama Branch: Transmart Buah Batu Bandung</h3>
               <h3>Lokasi: Jalan Bojongsoang Raya No. 269, Cipagalo, Bojongsoang, Cipagalo, Bojongsoang, Bandung, Jawa Barat 40287</h3>
               <h3>Tingkat Keramaian: Lorem Ipsum</h3>
-              <button type="button">
-                Pilih
-              </button>
+              <form action="#" method="POST">
+                <input type="submit" name="branch1" value="Pilih">
+              </form>
             </div>
             <div class="box card">
               <img src="asset/img/transmart bandung.jpg"/>
               <h3>Nama Branch: Lorem Ipsum</h3>
               <h3>Lokasi: Lorem Ipsum</h3>
               <h3>Tingkat Keramaian: Lorem Ipsum</h3>
-              <button type="button">
-                Pilih
-              </button>
+              <form action="#" method="POST">
+                <input type="submit" name="branch2" value="Pilih">
+              </form>
             </div>
             <div class="box card">
               <img src="asset/img/transmart bandung.jpg"/>
               <h3>Nama Branch: Lorem Ipsum</h3>
               <h3>Lokasi: Lorem Ipsum</h3>
               <h3>Tingkat Keramaian: Lorem Ipsum</h3>
-              <button type="button">
-                Pilih
-              </button>
+              <form action="#" method="POST">
+                <input type="submit" name="branch3" value="Pilih">
+              </form>
             </div>
           </div>
         </div>
@@ -51,3 +53,21 @@
     <footer></footer>
   </body>
 </html>
+
+<?php 
+if (isset($_POST['branch1'])) {
+  $branch_name = 'Transmart Buah Batu Bandung';
+  $_SESSION['branch_name'] = $branch_name;
+  header('location: detail-branch.php');
+}
+elseif (isset($_POST['branch2'])) {
+  $branch_name = 'Transmart B';
+  $_SESSION['branch_name'] = $branch_name;
+  header('location: detail-branch.php');
+}
+elseif (isset($_POST['branch3'])) {
+  $branch_name = 'Transmart C';
+  $_SESSION['branch_name'] = $branch_name;
+  header('location: detail-branch.php');
+}
+?>
